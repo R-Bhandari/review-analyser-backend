@@ -20,10 +20,10 @@ import businessRoutes from "./routes/businessRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import branchRoutes from "./routes/branchRoutes.js";
 
-app.use("/api/users", userRoutes);
-app.use("/api/feedback", feedbackRoutes);
 app.use("/api/businesses", businessRoutes);
 app.use("/api/branches", branchRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
