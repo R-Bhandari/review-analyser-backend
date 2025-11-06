@@ -23,6 +23,8 @@ import roleRoutes from "./routes/roleRoutes.js";
 import departmentRoutes from "./routes/departmentRoutes.js";
 import templateRoutes from "./routes/templateRoutes.js";
 import questionRoutes from "./routes/questionRoutes.js";
+import feedbackResponseRoutes from "./routes/feedbackResponseRoutes.js";
+
 
 
 
@@ -34,6 +36,8 @@ app.use("/api/departments", departmentRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/templates", templateRoutes);
 app.use("/api/questions", questionRoutes);
+app.use("/api/feedback-responses", feedbackResponseRoutes);
+
 
 
 
