@@ -25,6 +25,7 @@ import questionRoutes from "./routes/questionRoutes.js";
 import feedbackResponseRoutes from "./routes/feedbackResponseRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import sentimentSummaryRoutes from "./routes/sentimentSummaryRoutes.js";
+import categoryTagRoutes from "./routes/categoryTagRoutes.js";
 
 
 
@@ -40,6 +41,7 @@ app.use("/api/questions", questionRoutes);
 app.use("/api/feedback-responses", feedbackResponseRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/summaries", sentimentSummaryRoutes);
+app.use("/api/tags", categoryTagRoutes);
 
 
 
