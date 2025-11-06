@@ -20,11 +20,13 @@ import businessRoutes from "./routes/businessRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import branchRoutes from "./routes/branchRoutes.js";
 import roleRoutes from "./routes/roleRoutes.js";
+import departmentRoutes from "./routes/departmentRoutes.js";
 
 app.use("/api/businesses", businessRoutes);
 app.use("/api/branches", branchRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/roles", roleRoutes);
+app.use("/api/departments", departmentRoutes);
 app.use("/api/feedback", feedbackRoutes);
 
 // Start server
