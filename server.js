@@ -31,6 +31,7 @@ import tagAnalyticsRoutes from "./routes/tagAnalyticsRoutes.js";
 import trendRecordRoutes from "./routes/trendRecordRoutes.js";
 import analyticsCacheRoutes from "./routes/analyticsCacheRoutes.js";
 import keywordClusterRoutes from "./routes/keywordClusterRoutes.js";
+import aiConfigRoutes from "./routes/aiConfigRoutes.js";
 
 
 app.use("/api/businesses", businessRoutes);
@@ -49,6 +50,7 @@ app.use("/api/tag-analytics", tagAnalyticsRoutes);
 app.use("/api/trend-records", trendRecordRoutes);
 app.use("/api/analytics-cache", analyticsCacheRoutes);
 app.use("/api/keyword-clusters", keywordClusterRoutes);
+app.use("/api/ai-config", aiConfigRoutes);
 
 
 
