@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
-import Business from "../models/businessModel.js";
-import Branch from "../models/branchModel.js";
+import Business from "../../business/models/businessModel.js";
+import Branch from "../../business/models/branchModel.js"; // ✅ fixed path
 
 // 🔐 Generate JWT Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, process.env.JWT_SECRET || "dev_secret_key", {
     expiresIn: "30d",
   });
 };
@@ -15,10 +15,24 @@ export const registerUser = async (req, res) => {
   try {
     const { name, email, password, role, businessId, branchId } = req.body;
 
-    // Check if user exists
+    // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists)
       return res.status(400).json({ message: "User already exists" });
+
+    // Validate businessId (optional)
+    if (businessId) {
+      const business = await Business.findById(businessId);
+      if (!business)
+        return res.status(400).json({ message: "Invalid businessId" });
+    }
+
+    // Validate branchId (optional)
+    if (branchId) {
+      const branch = await Branch.findById(branchId);
+      if (!branch)
+        return res.status(400).json({ message: "Invalid branchId" });
+    }
 
     // Create user
     const user = await User.create({
@@ -42,7 +56,7 @@ export const registerUser = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(error);
+    console.error("❌ Error in registerUser:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -72,7 +86,7 @@ export const loginUser = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(error);
+    console.error("❌ Error in loginUser:", error);
     res.status(500).json({ message: "Server error" });
   }
 };

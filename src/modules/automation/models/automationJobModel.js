@@ -55,7 +55,7 @@ const automationJobSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-automationJobSchema.index({ jobName: 1 });
+// automationJobSchema.index({ jobName: 1 });
 
 const AutomationJob = mongoose.model("AutomationJob", automationJobSchema);
 export default AutomationJob;

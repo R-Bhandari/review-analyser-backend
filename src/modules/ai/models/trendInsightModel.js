@@ -6,13 +6,13 @@ const trendInsightSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Business",
       required: true,
-      index: true,
+      // index: true,
     },
     branch: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Branch",
       required: false,
-      index: true,
+      // index: true,
     },
 
     // Context (daily, weekly, monthly)

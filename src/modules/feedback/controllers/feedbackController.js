@@ -1,6 +1,6 @@
 import Feedback from "../models/feedbackModel.js";
 import FeedbackResponse from "../models/feedbackResponseModel.js";
-import Branch from "../models/branchModel.js";
+import Branch from "../../business/models/branchModel.js";
 
 // ➤ Create Feedback (aggregate all responses)
 export const createFeedback = async (req, res) => {
