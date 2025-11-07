@@ -38,6 +38,8 @@ import aiRequestLogRoutes from "./routes/aiRequestLogRoutes.js";
 import aiSummaryQueueRoutes from "./routes/aiSummaryQueueRoutes.js";
 import responseTrainingRoutes from "./routes/responseTrainingRoutes.js";
 import automationJobRoutes from "./routes/automationJobRoutes.js";
+import reportRecordRoutes from "./routes/reportRecordRoutes.js";
+
 
 
 
@@ -64,6 +66,7 @@ app.use("/api/ai-request-logs", aiRequestLogRoutes);
 app.use("/api/ai-summary-queue", aiSummaryQueueRoutes);
 app.use("/api/response-training", responseTrainingRoutes);
 app.use("/api/automation-jobs", automationJobRoutes);
+app.use("/api/report-records", reportRecordRoutes);
 
 
 
