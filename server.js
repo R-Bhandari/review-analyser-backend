@@ -28,7 +28,7 @@ import sentimentSummaryRoutes from "./routes/sentimentSummaryRoutes.js";
 import categoryTagRoutes from "./routes/categoryTagRoutes.js";
 import analyticsSummaryRoutes from "./routes/analyticsSummaryRoutes.js";
 import tagAnalyticsRoutes from "./routes/tagAnalyticsRoutes.js";
-
+import trendRecordRoutes from "./routes/trendRecordRoutes.js";
 
 
 app.use("/api/businesses", businessRoutes);
@@ -44,7 +44,7 @@ app.use("/api/summaries", sentimentSummaryRoutes);
 app.use("/api/tags", categoryTagRoutes);
 app.use("/api/analytics-summary", analyticsSummaryRoutes);
 app.use("/api/tag-analytics", tagAnalyticsRoutes);
-
+app.use("/api/trend-records", trendRecordRoutes);
 
 
 
