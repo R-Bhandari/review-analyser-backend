@@ -36,6 +36,8 @@ import autoSummaryRoutes from "./routes/autoSummaryRoutes.js";
 import trendInsightRoutes from "./routes/trendInsightRoutes.js";
 import aiRequestLogRoutes from "./routes/aiRequestLogRoutes.js";
 import aiSummaryQueueRoutes from "./routes/aiSummaryQueueRoutes.js";
+import responseTrainingRoutes from "./routes/responseTrainingRoutes.js";
+
 
 
 app.use("/api/businesses", businessRoutes);
@@ -59,6 +61,7 @@ app.use("/api/auto-summary", autoSummaryRoutes);
 app.use("/api/trend-insights", trendInsightRoutes);
 app.use("/api/ai-request-logs", aiRequestLogRoutes);
 app.use("/api/ai-summary-queue", aiSummaryQueueRoutes);
+app.use("/api/response-training", responseTrainingRoutes);
 
 
 // Start server
