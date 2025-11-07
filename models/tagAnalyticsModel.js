@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const analyticsSummarySchema = new mongoose.Schema(
+const tagAnalyticsSchema = new mongoose.Schema(
   {
     business: {
       type: mongoose.Schema.Types.ObjectId,
@@ -14,42 +14,31 @@ const analyticsSummarySchema = new mongoose.Schema(
       required: false,
       index: true,
     },
-
-    // Period metadata
-    periodType: {
-      type: String,
-      enum: ["daily", "weekly", "monthly", "overall"],
-      default: "overall",
+    tag: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "CategoryTag",
+      required: true,
+      index: true,
     },
-    periodStart: Date,
-    periodEnd: Date,
 
-    // Feedback metrics
+    // Aggregated feedback data
     totalFeedbacks: { type: Number, default: 0 },
+    averageScore: { type: Number, default: 0 },
     positiveCount: { type: Number, default: 0 },
     neutralCount: { type: Number, default: 0 },
     negativeCount: { type: Number, default: 0 },
-    averageScore: { type: Number, default: 0 },
 
-    // Derived ratios
+    // Derived percentages
     positivePercentage: { type: Number, default: 0 },
     neutralPercentage: { type: Number, default: 0 },
     negativePercentage: { type: Number, default: 0 },
 
-    // Source breakdown
-    sourceBreakdown: {
-      app: { type: Number, default: 0 },
-      web: { type: Number, default: 0 },
-      form: { type: Number, default: 0 },
-    },
-
     lastComputedAt: { type: Date, default: Date.now },
-    remarks: { type: String },
   },
   { timestamps: true }
 );
 
-analyticsSummarySchema.index({ business: 1, branch: 1, periodType: 1, periodStart: 1 });
+tagAnalyticsSchema.index({ business: 1, branch: 1, tag: 1 });
 
-const AnalyticsSummary = mongoose.model("AnalyticsSummary", analyticsSummarySchema);
-export default AnalyticsSummary;
+const TagAnalytics = mongoose.model("TagAnalytics", tagAnalyticsSchema);
+export default TagAnalytics;

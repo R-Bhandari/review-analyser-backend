@@ -26,8 +26,8 @@ import feedbackResponseRoutes from "./routes/feedbackResponseRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import sentimentSummaryRoutes from "./routes/sentimentSummaryRoutes.js";
 import categoryTagRoutes from "./routes/categoryTagRoutes.js";
-
-
+import analyticsSummaryRoutes from "./routes/analyticsSummaryRoutes.js";
+import tagAnalyticsRoutes from "./routes/tagAnalyticsRoutes.js";
 
 
 
@@ -42,7 +42,8 @@ app.use("/api/feedback-responses", feedbackResponseRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/summaries", sentimentSummaryRoutes);
 app.use("/api/tags", categoryTagRoutes);
-
+app.use("/api/analytics-summary", analyticsSummaryRoutes);
+app.use("/api/tag-analytics", tagAnalyticsRoutes);
 
 
 
