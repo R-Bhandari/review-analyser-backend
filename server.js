@@ -34,6 +34,7 @@ import keywordClusterRoutes from "./routes/keywordClusterRoutes.js";
 import aiConfigRoutes from "./routes/aiConfigRoutes.js";
 import autoSummaryRoutes from "./routes/autoSummaryRoutes.js";
 import trendInsightRoutes from "./routes/trendInsightRoutes.js";
+import aiRequestLogRoutes from "./routes/aiRequestLogRoutes.js";
 
 
 app.use("/api/businesses", businessRoutes);
@@ -55,6 +56,7 @@ app.use("/api/keyword-clusters", keywordClusterRoutes);
 app.use("/api/ai-config", aiConfigRoutes);
 app.use("/api/auto-summary", autoSummaryRoutes);
 app.use("/api/trend-insights", trendInsightRoutes);
+app.use("/api/ai-request-logs", aiRequestLogRoutes);
 
 
 // Start server
