@@ -33,6 +33,7 @@ import analyticsCacheRoutes from "./routes/analyticsCacheRoutes.js";
 import keywordClusterRoutes from "./routes/keywordClusterRoutes.js";
 import aiConfigRoutes from "./routes/aiConfigRoutes.js";
 import autoSummaryRoutes from "./routes/autoSummaryRoutes.js";
+import trendInsightRoutes from "./routes/trendInsightRoutes.js";
 
 
 app.use("/api/businesses", businessRoutes);
@@ -53,6 +54,7 @@ app.use("/api/analytics-cache", analyticsCacheRoutes);
 app.use("/api/keyword-clusters", keywordClusterRoutes);
 app.use("/api/ai-config", aiConfigRoutes);
 app.use("/api/auto-summary", autoSummaryRoutes);
+app.use("/api/trend-insights", trendInsightRoutes);
 
 
 // Start server
