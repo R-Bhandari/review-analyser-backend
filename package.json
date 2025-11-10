@@ -1,6 +1,7 @@
 {
   "name": "review-analyser-backend",
   "version": "1.0.0",
+  "description": "Review Analyser SaaS backend",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -12,9 +13,7 @@
     "@middleware": "src/middleware",
     "@utils": "src/utils",
     "@config": "config"
-  }
-
-
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/R-Bhandari/review-analyser-backend.git"
@@ -26,7 +25,6 @@
     "url": "https://github.com/R-Bhandari/review-analyser-backend/issues"
   },
   "homepage": "https://github.com/R-Bhandari/review-analyser-backend#readme",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
