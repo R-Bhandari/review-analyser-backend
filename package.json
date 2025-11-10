@@ -7,6 +7,14 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
+  "_moduleAliases": {
+    "@modules": "src/modules",
+    "@middleware": "src/middleware",
+    "@utils": "src/utils",
+    "@config": "config"
+  }
+
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/R-Bhandari/review-analyser-backend.git"
