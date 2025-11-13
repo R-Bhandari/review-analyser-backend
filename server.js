@@ -19,6 +19,12 @@ connectDB();
 // Auto-load all routes dynamically
 await loadAllRoutes(app);
 
+// Swagger import for api docs
+import { swaggerSpec, swaggerUi } from "./config/swagger.js";
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
 // Routes
 // import userRoutes from "./routes/userRoutes.js";
 // import businessRoutes from "./routes/businessRoutes.js";
