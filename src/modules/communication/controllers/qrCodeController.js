@@ -1,5 +1,5 @@
 import QRCodeService from "../services/qrCodeService.js";
-import Branch from "../../core/models/branchModel.js"; // adjust path if needed
+import Branch from "../../business/models/branchModel.js";
 
 // ➤ Generate QR for a branch
 export const generateBranchQRCode = async (req, res) => {

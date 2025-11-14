@@ -1,4 +1,4 @@
-import ErrorLog from "../models/errorLogModel.js";
+import ErrorLog from "../modules/logs/models/errorLogModel.js";
 
 export const errorHandler = async (err, req, res, next) => {
   console.error("Server Error:", err);
