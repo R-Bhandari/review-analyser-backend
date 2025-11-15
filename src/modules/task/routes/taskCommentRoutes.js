@@ -5,10 +5,30 @@ import {
   deleteComment,
 } from "../controllers/taskCommentController.js";
 
+import { verifyAccessToken } from "../../../middleware/authMiddleware.js";
+import { requirePermission } from "../../../middleware/rbac/requirePermission.js";
+
 const router = express.Router();
 
-router.post("/", addComment);
-router.get("/task/:taskId", getCommentsByTask);
-router.delete("/:id", deleteComment);
+router.post(
+  "/",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  addComment
+);
+
+router.get(
+  "/task/:taskId",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  getCommentsByTask
+);
+
+router.delete(
+  "/:id",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  deleteComment
+);
 
 export default router;

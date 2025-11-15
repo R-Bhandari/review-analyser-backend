@@ -6,11 +6,37 @@ import {
   deleteEscalation,
 } from "../controllers/escalationController.js";
 
+import { verifyAccessToken } from "../../../middleware/authMiddleware.js";
+import { requirePermission } from "../../../middleware/rbac/requirePermission.js";
+
 const router = express.Router();
 
-router.post("/", createEscalation);
-router.get("/task/:taskId", getEscalationsByTask);
-router.put("/:id", updateEscalation);
-router.delete("/:id", deleteEscalation);
+router.post(
+  "/",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  createEscalation
+);
+
+router.get(
+  "/task/:taskId",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  getEscalationsByTask
+);
+
+router.put(
+  "/:id",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  updateEscalation
+);
+
+router.delete(
+  "/:id",
+  verifyAccessToken,
+  requirePermission("tasks.manage"),
+  deleteEscalation
+);
 
 export default router;

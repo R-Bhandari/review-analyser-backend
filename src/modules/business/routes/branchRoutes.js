@@ -6,11 +6,41 @@ import {
   getBranchesByBusiness,
 } from "../controllers/branchController.js";
 
+import { verifyAccessToken } from "../../../middleware/authMiddleware.js";
+import { requirePermission } from "../../../middleware/rbac/requirePermission.js";
+
 const router = express.Router();
 
-router.post("/", createBranch); // Create branch
-router.get("/", getAllBranches); // All branches
-router.get("/:id", getBranchById); // Single branch
-router.get("/business/:businessId", getBranchesByBusiness); // Branches of one business
+// Create branch
+router.post(
+  "/",
+  verifyAccessToken,
+  requirePermission("branch.manage"),
+  createBranch
+);
+
+// All branches
+router.get(
+  "/",
+  verifyAccessToken,
+  requirePermission("branch.manage"),
+  getAllBranches
+);
+
+// Single branch
+router.get(
+  "/:id",
+  verifyAccessToken,
+  requirePermission("branch.manage"),
+  getBranchById
+);
+
+// Branches of one business
+router.get(
+  "/business/:businessId",
+  verifyAccessToken,
+  requirePermission("branch.manage"),
+  getBranchesByBusiness
+);
 
 export default router;
