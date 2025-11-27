@@ -7,6 +7,8 @@ import {
 
 import { verifyAccessToken } from "../../../middleware/authMiddleware.js";
 import { requirePermission } from "../../../middleware/rbac/requirePermission.js";
+import { validate } from "../../../middleware/validate.js";
+import { createBusinessSchema } from "../validation/businessValidation.js";
 
 const router = express.Router();
 
@@ -15,10 +17,11 @@ router.post(
   "/", 
   verifyAccessToken,
   requirePermission("business.manage"),
+  validate(createBusinessSchema),
   createBusiness
 );
 
-// Get all businesses (only inside the user's business scope)
+// Get all businesses
 router.get(
   "/", 
   verifyAccessToken,
